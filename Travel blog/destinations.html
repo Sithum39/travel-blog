@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Stories - My Journey Around the World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="90" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #666;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .sigiriya-bg {
+            background: linear-gradient(45deg, #ff9a56, #ffad56);
+        }
+
+        .kandy-bg {
+            background: linear-gradient(45deg, #4ade80, #22c55e);
+        }
+
+        .galle-bg {
+            background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+        }
+
+        .story-content {
+            padding: 30px;
+        }
+
+        .destination-name {
+            font-size: 1.8em;
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .destination-description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .highlights {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .highlights h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlights li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .highlights li::before {
+            content: '✈️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.1em;
+        }
+
+        .highlights li:nth-child(2n)::before {
+            content: '🌟';
+        }
+
+        .highlights li:nth-child(3n)::before {
+            content: '📸';
+        }
+
+        .highlights li:nth-child(4n)::before {
+            content: '🏔️';
+        }
+
+        .highlights li:nth-child(5n)::before {
+            content: '🍜';
+        }
+
+        .story-footer {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .visit-date {
+            color: #666;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rating {
+            display: flex;
+            gap: 3px;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1.2em;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+
+        .nav-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(33, 150, 243, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .header p {
+                font-size: 1.1em;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .story-content {
+                padding: 20px;
+            }
+
+            .story-footer {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            .header {
+                padding: 40px 15px;
+            }
+
+            .destination-name {
+                font-size: 1.5em;
+            }
+
+            .story-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>My Sri Lankan Adventures</h1>
+        <p>Discovering the Pearl of the Indian Ocean</p>
+    </div>
+
+    <div class="container">
+        <div class="stories-grid">
+            <!-- Sigiriya, Sri Lanka Story -->
+            <div class="story-card">
+                <div class="story-image sigiriya-bg">
+                    🗿 Majestic Sigiriya Rock Fortress
+                </div>
+                <div class="story-content">
+                    <h2 class="destination-name">Sigiriya & Dambulla, Sri Lanka</h2>
+                    <p class="destination-description">
+                        The ancient rock fortress of Sigiriya stands as a testament to Sri Lanka's rich heritage, rising 200 meters above the jungle canopy. This UNESCO World Heritage site, known as the "Lion Rock," offered an incredible journey through history with its ancient frescoes, water gardens, and breathtaking summit views. The nearby Dambulla Cave Temple complex added spiritual depth to this cultural adventure in the heart of the Cultural Triangle.
+                    </p>
+                    <div class="highlights">
+                        <h3>🌟 Highlights & Activities</h3>
+                        <ul>
+                            <li>Dawn climb to Sigiriya Rock summit for spectacular sunrise views over ancient ruins</li>
+                            <li>Exploring the world-famous Sigiriya frescoes - the "Heavenly Maidens"</li>
+                            <li>Meditation session at the sacred Dambulla Golden Temple cave complex</li>
+                            <li>Wildlife safari in nearby Minneriya National Park for elephant gatherings</li>
+                            <li>Traditional Sri Lankan cooking class in a local village home</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-footer">
+                    <div class="visit-date">
+                        📅 Visited: January 2024
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kandy, Sri Lanka Story -->
+            <div class="story-card">
+                <div class="story-image kandy-bg">
+                    � Sacred Temple of the Tooth
+                </div>
+                <div class="story-content">
+                    <h2 class="destination-name">Kandy, Sri Lanka</h2>
+                    <p class="destination-description">
+                        The last royal capital of Sri Lanka, Kandy enchanted me with its serene lake, sacred temples, and lush hill country surroundings. Home to the revered Temple of the Tooth Relic, this UNESCO World Heritage city pulses with spiritual energy and cultural significance. The misty mountains, spice gardens, and traditional dance performances created an authentic Sri Lankan experience that touched both heart and soul.
+                    </p>
+                    <div class="highlights">
+                        <h3>�️ Highlights & Activities</h3>
+                        <ul>
+                            <li>Evening worship ceremony at the sacred Temple of the Sacred Tooth Relic</li>
+                            <li>Traditional Kandyan dance performance featuring fire walkers and drummers</li>
+                            <li>Peaceful boat ride on the scenic Kandy Lake at sunset</li>
+                            <li>Spice garden tour learning about Ceylon cinnamon and cardamom cultivation</li>
+                            <li>Royal Botanical Gardens visit exploring rare orchids and giant bamboo groves</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-footer">
+                    <div class="visit-date">
+                        📅 Visited: February 2024
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galle, Sri Lanka Story -->
+            <div class="story-card">
+                <div class="story-image galle-bg">
+                    � Historic Galle Fort
+                </div>
+                <div class="story-content">
+                    <h2 class="destination-name">Galle & Southern Coast, Sri Lanka</h2>
+                    <p class="destination-description">
+                        The colonial charm of Galle Fort transported me through centuries of maritime history, where Portuguese, Dutch, and British influences blend seamlessly with Sri Lankan culture. Walking along the ancient ramparts overlooking the Indian Ocean, I discovered boutique cafes, art galleries, and cobblestone streets that whisper tales of spice traders and colonial governors. The southern beaches offered the perfect contrast with their golden sands and swaying palm trees.
+                    </p>
+                    <div class="highlights">
+                        <h3>🌊 Highlights & Activities</h3>
+                        <ul>
+                            <li>Sunset walk along the historic Galle Fort ramparts overlooking the ocean</li>
+                            <li>Whale watching expedition spotting blue whales and dolphins off Mirissa</li>
+                            <li>Traditional stilt fishing experience with local fishermen at Koggala</li>
+                            <li>Exploring colonial architecture and museums within the UNESCO Galle Fort</li>
+                            <li>Relaxing on pristine Unawatuna Beach with fresh seafood and coconut water</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="story-footer">
+                    <div class="visit-date">
+                        📅 Visited: March 2024
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="about.html" class="nav-link">← Back to About Me</a>
+        </div>
+    </div>
+</body>
+</html>

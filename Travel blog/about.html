@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sithum - Travel Enthusiast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .about-me {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #2196F3;
+        }
+
+        .about-me h2 {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .about-me p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .interests {
+            margin-bottom: 40px;
+        }
+
+        .interests h2 {
+            color: #2196F3;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .interest-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #2196F3;
+        }
+
+        .interest-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .interest-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .interest-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .contact {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-subtitle {
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sithum</h1>
+            <p>Passionate World Explorer & Adventure Seeker</p>
+        </div>
+
+        <div class="content">
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>
+                    Welcome to my travel journey! I'm Alex, a passionate explorer who believes that the world is a book, and those who don't travel read only one page. Over the past five years, I've had the incredible privilege of visiting over 25 countries across four continents, each destination teaching me something new about culture, history, and most importantly, about myself.
+                </p>
+                <br>
+                <p>
+                    My travel philosophy centers around authentic experiences and meaningful connections with local communities. Whether I'm hiking through the misty mountains of Nepal, savoring street food in bustling Bangkok markets, or watching the sunrise over Santorini's blue domes, I seek to immerse myself fully in each destination's unique character and charm.
+                </p>
+            </div>
+
+            <div class="interests">
+                <h2>My Travel Interests</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">🏔️</div>
+                        <h3>Adventure Travel</h3>
+                        <p>Mountain climbing, hiking, and exploring remote wilderness areas around the globe.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🏛️</div>
+                        <h3>Cultural Heritage</h3>
+                        <p>Discovering ancient ruins, historical sites, and UNESCO World Heritage locations.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🍜</div>
+                        <h3>Culinary Exploration</h3>
+                        <p>Tasting authentic local cuisines and learning traditional cooking techniques.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">📸</div>
+                        <h3>Travel Photography</h3>
+                        <p>Capturing stunning landscapes, vibrant cultures, and unforgettable moments.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🏖️</div>
+                        <h3>Beach & Islands</h3>
+                        <p>Exploring tropical paradises, crystal-clear waters, and pristine coastlines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h2>Let's Connect</h2>
+                <p class="contact-subtitle">Ready to share travel stories or plan an adventure together?</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:alex.johnson@email.com">sithumjayathilak@email.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:+1234567890">0712345678</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>kandy</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <a href="#" target="_blank">@SriLanka</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
